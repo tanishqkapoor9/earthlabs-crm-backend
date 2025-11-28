@@ -9,11 +9,11 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.get("/", (req, res) => {
-  res.status(200).send("✅ EarthLabs CRM API running");
+  res.status(200).send(" EarthLabs CRM API running");
 });
 
 app.get("/company", (req, res) => {
-  res.status(200).send("✅ Use POST /company");
+  res.status(200).send("Use POST /company");
 });
 app.post("/company", (req, res) => {
   const text = req.body.text;
