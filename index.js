@@ -1,3 +1,6 @@
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
@@ -32,6 +35,7 @@ app.get("/company", (req, res) => {
  * Command: /company <Company_Name> <Website>
  */
 app.post("/company", async (req, res) => {
+    console.log("SLACK BODY:", req.body);
   try {
     const text = req.body.text || "";
     const user = req.body.user_name || "unknown";
@@ -81,7 +85,7 @@ app.post("/company", async (req, res) => {
       error.response?.data || error.message
     );
 
-    return res.send("❌ Error adding company to CRM");
+    return res.send(" Error adding company to CRM");
   }
 });
 
